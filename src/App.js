@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import Article from './Article';
+
+const articles = [
+  {title:"Article #1", description:"...", author:"anonymous" },
+  {title:"Article #", description:"...", author:"anonymous" }
+]
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+     <header>
+       <div>
+         <h1>Blog</h1>
+       </div>
+       <main>
+         <h2>Tous les articles</h2>
+         <section>
+           {articles.map((article)=> (
+             <Article key={article.title} {...article}/>
+           ))}        
+         </section>
+       </main>
+        
+     </header>
     </div>
   );
 }
